@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Banner del restaurante -->
+    <TextView
+        android:id="@+id/restaurantName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FF5722"
+        android:text="MENÚ PRINCIPAL"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        android:gravity="center"
+        android:padding="16dp" />
+
+    <!-- Categorías -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/restaurantName"
+        android:layout_above="@id/cartButton"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:id="@+id/categoryList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+            <!-- Primera fila: Bebidas y Desayunos -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnBebidas"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Bebidas"
+                    android:backgroundTint="#03A9F4"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"/>
+
+                <Button
+                    android:id="@+id/btnDesayunos"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Desayunos"
+                    android:backgroundTint="#FFC107"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- Segunda fila: Comidas y Cenas -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <Button
+                    android:id="@+id/btnComidas"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Comidas"
+                    android:backgroundTint="#8BC34A"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"/>
+
+                <Button
+                    android:id="@+id/btnCenas"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cenas"
+                    android:backgroundTint="#9C27B0"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <!-- Tercera fila: Postres y Promociones -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginBottom="16dp">
+
+                <!-- Botón Postres -->
+                <Button
+                    android:id="@+id/btnPostres"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Postres"
+                    android:backgroundTint="#FF9800"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginEnd="16dp"/>
+
+                <!-- Botón Promociones del Día -->
+                <Button
+                    android:id="@+id/btnPromociones"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="Promociones del Día"
+                    android:backgroundTint="#E91E63"
+                    android:textColor="#FFFFFF"
+                    android:textSize="12sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <!-- Botón para ver carrito -->
+    <Button
+        android:id="@+id/cartButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ver ordenes"
+        android:backgroundTint="#4CAF50"
+        android:textColor="#FFFFFF"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"/>
+
+</RelativeLayout>
