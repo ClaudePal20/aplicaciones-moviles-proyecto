@@ -13,9 +13,21 @@ public class CategoryActivity extends AppCompatActivity {
     private List<Article> articleList;
 
     @Override
+    public boolean onSupportNavigateUp() {
+        finish();  // Termina esta actividad y vuelve a la anterior
+        return true;
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
+
+        // Configurar el ActionBar con botón "back"
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setTitle(getIntent().getStringExtra("category"));  // Opcional, título dinámico
+        }
 
         recyclerView = findViewById(R.id.recyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
@@ -73,7 +85,7 @@ public class CategoryActivity extends AppCompatActivity {
                 articleList.add(new Article("Flan", "🍮"));
                 break;
 
-            case "Promociones del dia":
+            case "Promociones":
                 articleList.add(new Article("", ""));
                 articleList.add(new Article("2x1 en Pizzas", "🔥"));
                 articleList.add(new Article("Bebida Gratis", "🥤"));

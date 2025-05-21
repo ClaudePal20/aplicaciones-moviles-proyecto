@@ -112,7 +112,7 @@
                     android:id="@+id/btnPromociones"
                     android:layout_width="150dp"
                     android:layout_height="wrap_content"
-                    android:text="Promociones del Día"
+                    android:text="Promociones"
                     android:backgroundTint="#E91E63"
                     android:textColor="#FFFFFF"
                     android:textSize="12sp" />
