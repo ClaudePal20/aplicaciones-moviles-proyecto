@@ -3,8 +3,11 @@ package com.example.proyecto_aplicaciones_moviles;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     @Override
@@ -18,7 +21,11 @@ public class MainActivity extends AppCompatActivity {
         findViewById(R.id.btnCenas).setOnClickListener(v -> openCategory("Cenas"));
         findViewById(R.id.btnPostres).setOnClickListener(v -> openCategory("Postres"));
         findViewById(R.id.btnPromociones).setOnClickListener(v -> openCategory("Promociones"));
-        findViewById(R.id.cartButton).setOnClickListener(v -> sendCartByEmail());
+        findViewById(R.id.cartButton).setOnClickListener(v -> {
+            Intent intent = new Intent(this, CartActivity.class);
+            startActivity(intent);
+        });
+
     }
 
     private void openCategory(String category) {
@@ -28,10 +35,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void sendCartByEmail() {
+        List<Article> cartItems = CartManager.getInstance().getCartItems();
+
+        if (cartItems.isEmpty()) {
+            Toast.makeText(this, "El carrito está vacío.", Toast.LENGTH_SHORT).show();
+            return; // Don't continue if cart is empty
+        }
+
+        StringBuilder orderSummary = new StringBuilder("Mi orden:\n\n");
+        for (Article article : cartItems) {
+            orderSummary.append("- ").append(article.getEmoji()).append(" ").append(article.getName()).append("\n");
+        }
+
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","orden@restaurante.com", null));
+                "mailto", "orden@restaurante.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Mi Orden");
-        emailIntent.putExtra(Intent.EXTRA_TEXT, "Aquí está mi orden...");
+        emailIntent.putExtra(Intent.EXTRA_TEXT, orderSummary.toString());
+
         startActivity(Intent.createChooser(emailIntent, "Enviar correo..."));
     }
+
+
 }

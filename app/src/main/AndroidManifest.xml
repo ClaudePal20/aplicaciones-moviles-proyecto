@@ -20,6 +20,7 @@
 
         <activity android:name=".CategoryActivity"
             android:exported="false" />
+        <activity android:name=".CartActivity" />
 
     </application>
 

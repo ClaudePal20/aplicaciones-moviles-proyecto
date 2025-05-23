@@ -67,6 +67,7 @@ public class CategoryActivity extends AppCompatActivity {
                 articleList.add(new Article("Sushi", "🍣"));
                 articleList.add(new Article("Ensalada", "🥗"));
                 articleList.add(new Article("Tacos", "🌮"));
+                break;
 
             case "Cenas":
                 articleList.add(new Article("", ""));
@@ -75,6 +76,7 @@ public class CategoryActivity extends AppCompatActivity {
                 articleList.add(new Article("Sopa de Tomate", "🥣"));
                 articleList.add(new Article("Sandwich", "🥪"));
                 articleList.add(new Article("Filete", "🥩"));
+                break;
 
             case "Postres":
                 articleList.add(new Article("", ""));
